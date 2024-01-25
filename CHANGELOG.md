@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- Improved documentation ([`d68b13e70198c8eb5f1f1e498d7c9350136f9ffb`](https://github.com/ollema/svelte-barcode-scanner/commit/d68b13e70198c8eb5f1f1e498d7c9350136f9ffb))
+- Improved documentation
 
 ## 0.1.3
 
@@ -28,4 +28,4 @@
 
 ### Minor Changes
 
-- 978c1a1: Initial release
+- Initial release
