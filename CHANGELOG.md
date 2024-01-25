@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- improve packaging ([#4](https://github.com/ollema/svelte-barcode-scanner/pull/4))
+- Improve packaging ([#4](https://github.com/ollema/svelte-barcode-scanner/pull/4))
 
 ## 0.1.0
 
