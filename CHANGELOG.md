@@ -1,5 +1,11 @@
 # svelte-barcode-scanner
 
+## 0.1.4
+
+### Patch Changes
+
+- Improved documentation ([`d68b13e70198c8eb5f1f1e498d7c9350136f9ffb`](https://github.com/ollema/svelte-barcode-scanner/commit/d68b13e70198c8eb5f1f1e498d7c9350136f9ffb))
+
 ## 0.1.3
 
 ### Patch Changes
