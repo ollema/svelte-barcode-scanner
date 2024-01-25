@@ -5,11 +5,11 @@
 
 	let loading = true;
 
-	let barcode: string | undefined = undefined;
-
 	const requiredNumberOfConsistentDetections = 5;
 	let lastDetectedBarcode = '';
 	let consistentDetectionCount = 0;
+
+	let barcodes: string[] = [];
 
 	function handleInit() {
 		loading = false;
@@ -27,7 +27,7 @@
 			}
 
 			if (consistentDetectionCount >= requiredNumberOfConsistentDetections) {
-				barcode = detectedBarcode;
+				barcodes = [...barcodes, detectedBarcode];
 				lastDetectedBarcode = '';
 				consistentDetectionCount = 0;
 				break;
@@ -81,6 +81,9 @@
 			<div class="loading">Loading...</div>
 		{/if}
 	</BarcodeScanner>
+	{#each barcodes as barcode}
+		<div>{barcode}</div>
+	{/each}
 </div>
 
 <style>
