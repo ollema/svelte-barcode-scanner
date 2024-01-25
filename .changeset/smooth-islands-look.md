@@ -1,5 +1,5 @@
 ---
-"svelte-barcode-scanner": minor
+'svelte-barcode-scanner': minor
 ---
 
 Initial release
