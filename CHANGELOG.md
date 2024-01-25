@@ -1,5 +1,11 @@
 # svelte-barcode-scanner
 
+## 0.1.3
+
+### Patch Changes
+
+- Automatically stop camera when <BarScanner /> component is destroyed ([#8](https://github.com/ollema/svelte-barcode-scanner/pull/8))
+
 ## 0.1.2
 
 ### Patch Changes
