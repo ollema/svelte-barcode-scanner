@@ -4,7 +4,7 @@ A Svelte component for detecting QR-codes, EAN-barcodes and other barcode format
 
 [![NPM Type Definitions](https://img.shields.io/npm/types/svelte-barcode-scanner)](https://www.npmjs.com/package/svelte-barcode-scanner)
 [![NPM Version](https://img.shields.io/npm/v/svelte-barcode-scanner)](https://www.npmjs.com/package/svelte-barcode-scanner)
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ollema/svelte-barcode-scanner/ci.yml)](https://github.com/ollema/svelte-barcode-scanner/actions/workflows/ci.yaml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ollema/svelte-barcode-scanner/ci.yml)](https://github.com/ollema/svelte-barcode-scanner/actions/workflows/ci.yml)
 [![GitHub License](https://img.shields.io/github/license/ollema/svelte-barcode-scanner)](./LICENSE)
 
 ## Installation
