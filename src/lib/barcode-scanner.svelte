@@ -1,21 +1,49 @@
 <script lang="ts">
-	import { startCamera, setupCanvas, drawVideo, detect, stopCamera } from './barcode-scanner.js';
+	import {
+		startCamera,
+		getCapabilities,
+		setupCanvas,
+		drawVideo,
+		detect
+	} from './barcode-scanner.js';
 	import type { Events, ROI, Track } from './types.js';
 
 	import 'rvfc-polyfill';
 	import { BarcodeDetector, type BarcodeFormat } from 'barcode-detector/pure';
 
-	import { createEventDispatcher, onMount } from 'svelte';
-	import { beforeNavigate } from '$app/navigation';
+	import { createEventDispatcher, onMount, onDestroy } from 'svelte';
 
 	const dispatch = createEventDispatcher<Events>();
 
+	/**
+	 * Formats to detect.
+	 *
+	 * @default undefined (all formats)
+	 */
 	export let formats: BarcodeFormat[] | undefined = undefined;
-	// false positive because for some reason MediaTrackConstraints is not recognized
-	// eslint-disable-next-line no-undef
+	/**
+	 * MediaTrackConstraints to use when requesting the camera.
+	 *
+	 * @default { facingMode: 'environment' } (rear camera)
+	 */
 	export let constraints: MediaTrackConstraints = { facingMode: 'environment' };
+	/**
+	 * Regions of interests (ROIs) to scan for barcodes.
+	 *
+	 * @default [{ x: 0, y: 0, width: 1, height: 1 }] (full frame)
+	 */
 	export let ROIs: ROI[] = [{ x: 0, y: 0, width: 1, height: 1 }];
+	/**
+	 * Whether to show the ROIs on the camera feed.
+	 *
+	 * @default false
+	 */
 	export let showROIs: boolean = false;
+	/**
+	 * Whether and how to track barcodes on the camera overlay.
+	 *
+	 * @default undefined (no tracking)
+	 */
 	export let track: Track | undefined = undefined;
 
 	let stream: MediaStream;
@@ -28,7 +56,8 @@
 
 	onMount(async () => {
 		const detector = new BarcodeDetector({ formats: formats });
-		const capabilities = await startCamera(video, stream, constraints);
+		stream = await startCamera(video, stream, constraints);
+		const capabilities = getCapabilities(stream);
 		const { ctxCamera, ctxOverlay } = setupCanvas(video, camera, overlay);
 
 		dispatch('init', capabilities);
@@ -55,12 +84,15 @@
 		vfc = video.requestVideoFrameCallback(processFrame);
 	});
 
-	beforeNavigate(() => {
+	onDestroy(() => {
 		if (vfc) {
 			video.cancelVideoFrameCallback(vfc);
 		}
 		if (stream) {
-			stopCamera(stream);
+			for (const track of stream.getTracks()) {
+				stream.removeTrack(track);
+				track.stop();
+			}
 		}
 	});
 </script>

@@ -2,6 +2,15 @@ import type { BarcodeDetector, DetectedBarcode } from 'barcode-detector/pure';
 
 import type { ROI, Track } from './types.js';
 
+/**
+ * Starts the camera and streams the video to the specified HTMLVideoElement.
+ *
+ * @param video - The HTMLVideoElement to display the camera stream.
+ * @param stream - The MediaStream object representing the camera stream.
+ * @param constraints - The MediaTrackConstraints to apply to the camera stream.
+ * @returns The MediaStream object representing the camera stream.
+ * @throws Error if camera access is not available in a secure context or if the Stream API is not supported.
+ */
 export async function startCamera(
 	video: HTMLVideoElement,
 	stream: MediaStream,
@@ -34,17 +43,20 @@ export async function startCamera(
 		setTimeout(resolve, 500);
 	});
 
+	return stream;
+}
+
+/**
+ * Retrieves the capabilities of the video track from the given MediaStream.
+ *
+ * @param stream The MediaStream containing the video track.
+ * @returns An object containing the capabilities of the video track.
+ */
+export function getCapabilities(stream: MediaStream) {
 	const [track] = stream.getVideoTracks();
 	const capabilities = track.getCapabilities();
 
 	return { capabilities };
-}
-
-export function stopCamera(stream: MediaStream) {
-	for (const track of stream.getTracks()) {
-		stream.removeTrack(track);
-		track.stop();
-	}
 }
 
 function objectFitVideoTransform(video: HTMLVideoElement) {
@@ -75,6 +87,14 @@ function objectFitVideoTransform(video: HTMLVideoElement) {
 	};
 }
 
+/**
+ * Sets up the canvas for barcode scanning.
+ *
+ * @param video - The HTMLVideoElement representing the video stream.
+ * @param camera - The HTMLCanvasElement used for rendering the camera feed.
+ * @param overlay - The HTMLCanvasElement used for rendering the barcode overlay.
+ * @returns An object containing the CanvasRenderingContext2D for the camera and overlay canvases.
+ */
 export function setupCanvas(
 	video: HTMLVideoElement,
 	camera: HTMLCanvasElement,
@@ -98,6 +118,12 @@ export function setupCanvas(
 	return { ctxCamera, ctxOverlay };
 }
 
+/**
+ * Draws the video onto the canvas (with object-fit: cover transformation).
+ * @param ctxCamera - The 2D rendering context of the camera canvas.
+ * @param camera - The HTML canvas element representing the camera.
+ * @param video - The HTML video element containing the video feed.
+ */
 export function drawVideo(
 	ctxCamera: CanvasRenderingContext2D,
 	camera: HTMLCanvasElement,
@@ -108,6 +134,19 @@ export function drawVideo(
 	ctxCamera.drawImage(video, x, y, width, height, 0, 0, camera.width, camera.height);
 }
 
+/**
+ * Detects barcodes within the specified regions of interest (ROIs) in a canvas.
+ *
+ * @param detector - The barcode detector instance used for barcode detection.
+ * @param ctxCamera - The 2D rendering context of the camera canvas.
+ * @param camera - The HTML canvas element representing the camera feed.
+ * @param ctxOverlay - The 2D rendering context of the overlay canvas.
+ * @param overlay - The HTML canvas element representing the overlay.
+ * @param rois - An array of regions of interest (ROIs) where barcodes will be detected.
+ * @param showROIS - A boolean indicating whether to display the ROIs on the overlay.
+ * @param track - An optional callback function for tracking detected barcodes.
+ * @returns A promise that resolves to an array of detected barcodes.
+ */
 export async function detect(
 	detector: BarcodeDetector,
 	ctxCamera: CanvasRenderingContext2D,
