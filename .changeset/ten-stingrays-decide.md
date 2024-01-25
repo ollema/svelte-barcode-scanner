@@ -1,5 +1,5 @@
 ---
-"svelte-barcode-scanner": patch
+'svelte-barcode-scanner': patch
 ---
 
 improve packaging
