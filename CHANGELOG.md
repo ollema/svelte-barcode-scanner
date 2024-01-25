@@ -1,5 +1,11 @@
 # svelte-barcode-scanner
 
+## 0.1.1
+
+### Patch Changes
+
+- improve packaging ([#4](https://github.com/ollema/svelte-barcode-scanner/pull/4))
+
 ## 0.1.0
 
 ### Minor Changes
