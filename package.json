@@ -1,5 +1,6 @@
 {
 	"name": "svelte-barcode-scanner",
+	"repository": "github:ollema/svelte-barcode-scanner",
 	"version": "0.1.0",
 	"scripts": {
 		"dev": "vite dev",
