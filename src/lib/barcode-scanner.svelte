@@ -5,7 +5,8 @@
 	import 'rvfc-polyfill';
 	import { BarcodeDetector, type BarcodeFormat } from 'barcode-detector/pure';
 
-	import { createEventDispatcher, onMount, onDestroy } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
+	import { beforeNavigate } from '$app/navigation';
 
 	const dispatch = createEventDispatcher<Events>();
 
@@ -54,7 +55,7 @@
 		vfc = video.requestVideoFrameCallback(processFrame);
 	});
 
-	onDestroy(() => {
+	beforeNavigate(() => {
 		if (vfc) {
 			video.cancelVideoFrameCallback(vfc);
 		}
