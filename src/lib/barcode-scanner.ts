@@ -1,4 +1,4 @@
-import { BarcodeDetector } from 'barcode-detector/pure';
+import type { BarcodeDetector, DetectedBarcode } from 'barcode-detector/pure';
 
 import type { ROI, Track } from './types.js';
 
@@ -117,7 +117,7 @@ export async function detect(
 	rois: ROI[],
 	showROIS: boolean,
 	track: Track | undefined
-) {
+): Promise<DetectedBarcode[]> {
 	ctxOverlay.clearRect(0, 0, overlay.width, overlay.height);
 
 	const allDetections = [];
