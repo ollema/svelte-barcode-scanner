@@ -120,6 +120,7 @@ export function setupCanvas(
 
 /**
  * Draws the video onto the canvas (with object-fit: cover transformation).
+ *
  * @param ctxCamera - The 2D rendering context of the camera canvas.
  * @param camera - The HTML canvas element representing the camera.
  * @param video - The HTML video element containing the video feed.
