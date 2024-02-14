@@ -1,87 +1,87 @@
 {
-  "name": "svelte-barcode-scanner",
-  "description": "A Svelte component for detecting QR-codes, EAN-barcodes and other barcode formats.",
-  "keywords": [
-    "svelte",
-    "sveltekit",
-    "barcode",
-    "barcode-scanner",
-    "qr",
-    "qr-scanner",
-    "qr-code",
-    "qr-code-scanner"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ollema/svelte-barcode-scanner"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/ollema/svelte-barcode-scanner",
-  "bugs": {
-    "url": "https://github.com/ollema/svelte-barcode-scanner/issues"
-  },
-  "author": {
-    "name": "Olle Månsson"
-  },
-  "funding": {
-    "type": "ko-fi",
-    "url": "https://ko-fi.com/ollema"
-  },
-  "version": "0.1.4",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build && pnpm run package",
-    "preview": "vite preview",
-    "package": "svelte-kit sync && svelte-package && publint",
-    "prepublishOnly": "pnpm run package",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "prettier --check . && eslint .",
-    "format": "prettier --write .",
-    "release": "changeset publish",
-    "changeset": "changeset"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js"
-    }
-  },
-  "files": [
-    "dist",
-    "!dist/**/*.test.*",
-    "!dist/**/*.spec.*"
-  ],
-  "peerDependencies": {
-    "svelte": "^4.0.0"
-  },
-  "devDependencies": {
-    "@changesets/cli": "^2.27.1",
-    "@sveltejs/adapter-auto": "^3.1.1",
-    "@sveltejs/kit": "^2.5.0",
-    "@sveltejs/package": "^2.2.6",
-    "@sveltejs/vite-plugin-svelte": "^3.0.2",
-    "@svitejs/changesets-changelog-github-compact": "^1.1.0",
-    "@types/eslint": "8.56.2",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-svelte": "^2.35.1",
-    "prettier": "^3.2.5",
-    "prettier-plugin-svelte": "^3.2.1",
-    "publint": "^0.2.7",
-    "svelte": "^4.2.10",
-    "svelte-check": "^3.6.4",
-    "tslib": "^2.6.2",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.1"
-  },
-  "svelte": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "type": "module",
-  "dependencies": {
-    "barcode-detector": "^2.2.3",
-    "rvfc-polyfill": "^1.0.7"
-  }
+	"name": "svelte-barcode-scanner",
+	"description": "A Svelte component for detecting QR-codes, EAN-barcodes and other barcode formats.",
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"barcode",
+		"barcode-scanner",
+		"qr",
+		"qr-scanner",
+		"qr-code",
+		"qr-code-scanner"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ollema/svelte-barcode-scanner"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/ollema/svelte-barcode-scanner",
+	"bugs": {
+		"url": "https://github.com/ollema/svelte-barcode-scanner/issues"
+	},
+	"author": {
+		"name": "Olle Månsson"
+	},
+	"funding": {
+		"type": "ko-fi",
+		"url": "https://ko-fi.com/ollema"
+	},
+	"version": "0.1.4",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build && pnpm run package",
+		"preview": "vite preview",
+		"package": "svelte-kit sync && svelte-package && publint",
+		"prepublishOnly": "pnpm run package",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"release": "changeset publish",
+		"changeset": "changeset"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"peerDependencies": {
+		"svelte": "^4.0.0"
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.27.1",
+		"@sveltejs/adapter-auto": "^3.1.1",
+		"@sveltejs/kit": "^2.5.0",
+		"@sveltejs/package": "^2.2.6",
+		"@sveltejs/vite-plugin-svelte": "^3.0.2",
+		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
+		"@types/eslint": "8.56.2",
+		"@typescript-eslint/eslint-plugin": "^6.21.0",
+		"@typescript-eslint/parser": "^6.21.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.35.1",
+		"prettier": "^3.2.5",
+		"prettier-plugin-svelte": "^3.2.1",
+		"publint": "^0.2.7",
+		"svelte": "^4.2.10",
+		"svelte-check": "^3.6.4",
+		"tslib": "^2.6.2",
+		"typescript": "^5.3.3",
+		"vite": "^5.1.1"
+	},
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"type": "module",
+	"dependencies": {
+		"barcode-detector": "^2.2.3",
+		"rvfc-polyfill": "^1.0.7"
+	}
 }
