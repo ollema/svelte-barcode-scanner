@@ -1,5 +1,11 @@
 # svelte-barcode-scanner
 
+## 0.1.6
+
+### Patch Changes
+
+- bump barcode-detector to 2.2.4 ([`843c3eb187df06afefaddd8454e2a9308c3a134c`](https://github.com/ollema/svelte-barcode-scanner/commit/843c3eb187df06afefaddd8454e2a9308c3a134c))
+
 ## 0.1.5
 
 ### Patch Changes
