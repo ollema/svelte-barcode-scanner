@@ -27,7 +27,7 @@
 		"type": "ko-fi",
 		"url": "https://ko-fi.com/ollema"
 	},
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && pnpm run package",
