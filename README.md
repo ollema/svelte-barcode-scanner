@@ -16,7 +16,7 @@ npm install svelte-barcode-scanner
 or
 
 ```bash
-pnpm install svelte-barcode-scanner
+pnpm add svelte-barcode-scanner
 ```
 
 ## Usage
